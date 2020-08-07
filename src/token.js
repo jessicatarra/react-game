@@ -9,8 +9,9 @@ const TokenStyled = styled.div`
     border-radius: 50%;
     display: flex;
     background: white;
-    z-index: 2;
     box-shadow: 0 5px 0px ${(props) => props.color.border};
+    position: relative;
+    z-index: 2;
     cursor: pointer;
     &:active {
         transform: scale(.9);
@@ -41,9 +42,12 @@ const colors = {
     }
 }
 
-export default function Token({ name }) {
+export default function Token({ name, onClick }){
+    function handleClick() {
+        onClick(name)
+    }
     return (
-        <TokenStyled color={colors[name]}>
+        <TokenStyled color={colors[name]} onClick={handleClick}>
             <div className="box">
              <img src={`./images/icon-${name}.svg`}alt="" />   
             </div>

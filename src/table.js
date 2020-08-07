@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 import Token from './token'
 
@@ -15,6 +15,7 @@ const TableStyled = styled.div`
         grid-column: span 2;
     }
     .triangle {
+        display: ${({ playing }) => !playing ? 'block' : 'none'};
         position: absolute;
         top: 0;
         left: 0;
@@ -26,12 +27,35 @@ const TableStyled = styled.div`
 `
 
 export default function Table() {
+    const [playing, setPlaying] = useState(false)
+    const [pick, setPick] = useState('')
+    function onClick(name) {
+        setPlaying(true)
+        setPick(name)
+    }
     return (
-        <TableStyled>
+        <TableStyled  playing={playing}>
             <span className="triangle"></span>
-            <Token name="rock" />
-            <Token name="scissors"/>
-            <Token name="paper" />                
+            {
+                !playing ? (
+                    <>
+                        <Token name="rock" onClick={onClick} />
+                        <Token name="scissors" onClick={onClick} />
+                        <Token name="paper" onClick={onClick} />  
+                    </>
+                ) : (
+                        <>
+                            <div>
+                                <Token name={pick} onClick={onClick} />   
+                                <p> Your Picked</p>
+                            </div>
+                            <div>
+                                <p>The house picked</p>
+                            </div>
+                        </>
+                )
+            }
+   
         </TableStyled>
     )
 }
