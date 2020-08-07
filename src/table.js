@@ -21,7 +21,7 @@ const TableStyled = styled.div`
         bottom: 0;
         right: 0;
         margin: auto;
-        background: url(../images/bg-triangle.svg) no-repeat center; 
+        background: url(./images/bg-triangle.svg) no-repeat center; 
     }
 `
 
