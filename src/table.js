@@ -8,7 +8,7 @@ const TableStyled = styled.div`
     grid-template-columns: 130px 130px;
     justify-content: center; 
     justify-items: center;
-    grid-gap: 55px;
+    grid-gap: 70px;
     margin: 2em 0;
     position: relative;
     & div:nth-of-type(3) {

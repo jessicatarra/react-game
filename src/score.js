@@ -12,13 +12,14 @@ const ScoreStyle = styled.div`
         text-transform: uppercase;
         font-size: 10px;
         font-weight: bold;
+        letter-spacing: 1px;
     }
     p {
         color: hsl(229, 25%, 31%);
         font-size: 40px;
         margin: 0;
         font-weight: 700;
-        letter-spacing: -5px;
+        letter-spacing: -1px;
         position: relative;
         left: -2.5px;
     }

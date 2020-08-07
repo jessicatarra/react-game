@@ -5,8 +5,12 @@ import Button from './button'
 
 const RulesStyled = styled.div`
     text-align: center;
+    .close-button {
+    margin-top: 2em;
+    }
     .rules-overlay {
         background: white;
+        padding: 4em 0;
         position: fixed;
         left: 0;
         right: 0;
@@ -15,14 +19,14 @@ const RulesStyled = styled.div`
         z-index: 2;
         display: flex;
         align-items: center;
-        justify-content: center;
+        justify-content: space-between;
         flex-direction: column;
         h2 {
             color: hsl(229, 25%, 31%);
             text-transform: uppercase;
             font-weight: 700;
-            letter-spacing: -2px;
-            margin-bottom: 3em;
+            letter-spacing: -1px;
+            margin-bottom: 1em;
         }
     }
 `
