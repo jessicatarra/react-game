@@ -18,7 +18,7 @@ const TableStyled = styled.div`
     }
     .triangle {
         position: absolute;
-        top: 9em;
+        top: 7em;
         left: 0;
         bottom: 0;
         right: 0;
