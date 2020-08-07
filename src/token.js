@@ -9,6 +9,7 @@ const TokenStyled = styled.div`
     border-radius: 50%;
     display: flex;
     background: white;
+    z-index: 2;
     box-shadow: 0 5px 0px ${(props) => props.color.border};
     cursor: pointer;
     &:active {
