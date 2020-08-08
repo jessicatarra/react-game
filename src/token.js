@@ -49,7 +49,9 @@ const colors = {
 
 export default function Token({ name = 'default', onClick }){
     function handleClick() {
-        onClick(name)
+        if (onClick) {
+            onClick(name)
+        }
     }
     const color = colors[name]
     return (
