@@ -46,21 +46,36 @@ const elements = [
 ]
 
 function Table() {
+    const [results, setResults] = useState('')
+    const [housePick, setHousePick] = useState('default')
     const [playing, setPlaying] = useState(false)
     const [pick, setPick] = useState('')
-
     function getRandomInt(min, max) {
-        return Math.floor(Math.random() * (max - min)) + min;
+      return Math.floor(Math.random() * (max - min)) + min;
     }
 
-    function onClick(name) {        
+    function launchHousePick() {
+        return new Promise ((resolve, reject) => {
+            let pick
+            const interval = setInterval(() => {
+                pick = elements[getRandomInt(0,3)]
+                setHousePick(pick)
+            }, 75)
+            setTimeout(() => {
+                clearInterval(interval)
+                resolve(pick)
+            },2000)
+        })
+    }
+    async function onClick(name) {
         setPlaying(true)
         setPick(name)
-        const housePick = elements[getRandomInt(0,3)]
-        console.log('la casa eligio ', housePick)
-        const results = playWithIa( name, housePick)
-        console.log(results)
+        const house = await launchHousePick()
+        const results = playWithIa(name, house)
+        setResults(results)
     }
+
+
 
     function playWithIa(pick, housePick) {
         
@@ -112,11 +127,11 @@ function Table() {
                                 <p> Your Picked</p>
                             </div>
                             <div className="in-game">
-                                <Token /> 
+                                <Token name = {housePick}/> 
                                 <p>The house picked</p>
                             </ div>
                             <div className="results">
-                                <h2>You ????</h2>
+                                <h2>You {results}</h2>
                                 <WhiteButton onClick={handleTryAgainClick}>
                                     Try Again
                                 </WhiteButton>
