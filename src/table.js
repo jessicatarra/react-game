@@ -25,8 +25,13 @@ const TableStyled = styled.div`
     }
     .results{
         text-align: center;
+        h2{
         text-transform: uppercase;
-        font-weight: 700;
+        font-weight: 700;  
+        font-size: 56px;
+        margin: 10px; 
+        }
+        
     }
     .triangle {
         display: ${({ playing }) => !playing ? 'block' : 'none'};
@@ -112,9 +117,12 @@ function Table() {
             }
         }
     } 
+
     function handleTryAgainClick() {
         setPlaying(false)
+        setResults('')
     }
+    
     return (
         <TableStyled  playing={playing}>
             <span className="triangle"></span>
@@ -128,18 +136,24 @@ function Table() {
                 ) : (
                         <>
                             <div className="in-game">
-                                <Token name={pick} />   
+                                <Token name={pick} isShadowAnimated={(results === 'win')}  />   
                                 <p> Your Picked</p>
                             </div>
                             <div className="in-game">
-                                <Token name = {housePick}/> 
+                                <Token name = {housePick} isShadowAnimated={(results === 'lose')} /> 
                                 <p>The house picked</p>
                             </ div>
                             <div className="results">
-                                <h2>You {results}</h2>
-                                <WhiteButton onClick={handleTryAgainClick}>
-                                    Try Again
-                                </WhiteButton>
+                            {
+                                results && (
+                                    <>
+                                    <h2>YOU {results}</h2>
+                                    <WhiteButton onClick={handleTryAgainClick}>
+                                        Try Again
+                                    </WhiteButton>
+                                    </>
+                                )
+                            }
                             </div>
                         </>
                 )
