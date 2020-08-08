@@ -43,6 +43,9 @@ const TableStyled = styled.div`
         margin: auto;
         background: url(./images/bg-triangle.svg) no-repeat center; 
     }
+    @media screen and (min-width: 768px) {
+    grid-gap: 30px 140px;
+    }
 `
 
 const elements = [

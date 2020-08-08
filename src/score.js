@@ -24,6 +24,15 @@ const ScoreStyle = styled.div`
         position: relative;
         left: -2.5px;
     }
+    @media screen and (min-width: 768px) {
+    padding: 10px 20px;
+    small {
+      font-size: 16px;
+    }
+    p {
+      font-size: 60px;
+    }
+    }
 `
 
 export default function Score() {
