@@ -32,7 +32,7 @@ const RulesStyled = styled.div`
 `
 
 export default function Rules() {
-    const [visible, setVisible] = useState(true)
+    const [visible, setVisible] = useState(false)
     function handleToggleClick() {
       setVisible(!visible)
     }
@@ -47,7 +47,9 @@ export default function Rules() {
                 </div>
                 )
             }
-            <Button onClick={handleToggleClick} />
+            <Button onClick={handleToggleClick} >
+                Rules
+            </Button>
         </RulesStyled>
     )
 }

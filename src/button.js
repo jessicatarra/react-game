@@ -19,10 +19,19 @@ const ButtonStyled = styled.div`
     
 `
 
-export default function Button({ ...props}) {
+
+function Button({ children, ...props}) {
     return (
         <ButtonStyled {...props}>
-            Rules            
+            {children}            
         </ButtonStyled>
     )
 }
+
+export const WhiteButton = styled(ButtonStyled)`
+    background: white; 
+    color: hsl(229, 25%, 31%);
+    min-width: 220px;
+`
+
+export default Button
